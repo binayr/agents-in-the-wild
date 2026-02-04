@@ -180,14 +180,14 @@ result = action_agent_hitl(state)
 ### Available Models
 
 ```python
-from core.model import MASTOpenAIModel
+from core.model import AzureOpenAIModel
 
 # Chat models
-model = MASTOpenAIModel.get_model("gpt-4o")
-mini_model = MASTOpenAIModel.get_model("gpt-4o-mini")
+model = AzureOpenAIModel.get_model("gpt-4o")
+mini_model = AzureOpenAIModel.get_model("gpt-4o-mini")
 
 # Embedding models
-embeddings = MASTOpenAIModel.get_embedding_model("text-embedding-ada-002")
+embeddings = AzureOpenAIModel.get_embedding_model("text-embedding-ada-002")
 ```
 
 ## 📁 Project Structure
@@ -223,10 +223,10 @@ mkdir -p agents/your_agent
 
 2. Create `agent.py` with your agent implementation:
 ```python
-from core.model import MASTOpenAIModel
+from core.model import AzureOpenAIModel
 from pydantic import BaseModel, Field
 
-model = MASTOpenAIModel.get_model("gpt-4o")
+model = AzureOpenAIModel.get_model("gpt-4o")
 
 class YourAgentOut(BaseModel):
     output: str = Field(description="agent output")

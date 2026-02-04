@@ -5,10 +5,10 @@ from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
 
-from core.model import MASTOpenAIModel
+from core.model import AzureOpenAIModel
 
 #########  AI MODEL #########
-model = MASTOpenAIModel.get_model("gpt-4o")
+model = AzureOpenAIModel.get_model("gpt-4o")
 
 
 #########  DATA MODEL  ##############

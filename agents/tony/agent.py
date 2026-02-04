@@ -2,7 +2,7 @@
 import json
 from typing import Any
 
-from core.model import MASTOpenAIModel
+from core.model import AzureOpenAIModel
 from langchain.agents import create_agent
 from langchain.agents.middleware import HumanInTheLoopMiddleware
 from langchain_core.messages import ToolMessage
@@ -12,7 +12,7 @@ from langgraph.graph import State
 from pydantic import BaseModel, Field
 
 #########  AI MODEL #########
-model = MASTOpenAIModel.get_model("gpt-4o")
+model = AzureOpenAIModel.get_model("gpt-4o")
 
 
 #########  DATA MODEL  ##############

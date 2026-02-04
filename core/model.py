@@ -27,7 +27,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class MASTOpenAIModel:
+class AzureOpenAIModel:
     """
     Factory class for accessing various language models used by the TORI system.
 
