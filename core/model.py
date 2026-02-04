@@ -11,7 +11,6 @@ supports multiple Azure OpenAI models including o1, o1-mini, gpt-4o, and gpt-4o-
 """
 
 import logging
-import random
 
 from langchain_openai import AzureChatOpenAI, AzureOpenAIEmbeddings
 

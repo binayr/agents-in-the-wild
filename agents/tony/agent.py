@@ -6,10 +6,9 @@ from core.model import MASTOpenAIModel
 from langchain.agents import create_agent
 from langchain.agents.middleware import HumanInTheLoopMiddleware
 from langchain_core.messages import ToolMessage
-from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.tools import tool
 from langgraph.checkpoint.memory import InMemorySaver
-from langgraph.graph import END, START, State, StateGraph
+from langgraph.graph import State
 from pydantic import BaseModel, Field
 
 #########  AI MODEL #########
