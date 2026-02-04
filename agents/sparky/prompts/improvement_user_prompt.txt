@@ -1,0 +1,4 @@
+Input code contains SQL and python code, attached below. Read and understand the code and convert it to pyspark pipeline code.
+Input code : ```{input_code}```
+Converted code : ```{converted_code}```
+Improvements : ```{improvements}```

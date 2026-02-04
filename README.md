@@ -256,6 +256,10 @@ ruff format .
 |-------|------|-------|------|-------------------|----------|
 | **Sheldon** | Q&A | ❌ | ❌ | ✅ | Knowledge retrieval, information lookup |
 | **Tony** | Action | ✅ | ✅ | ✅ | Task automation, controlled actions |
+| **Jarvis** | Action | ✅ | ✅ | ✅ | Writes code |
+| **Element** | action | ❌ | ❌ | ✅ | Converts legacy code to modern code |
+| **Sparky** | action | ❌ | ❌ | ✅ | Converts legacy spark code to databricks code |
+
 
 ## 🔒 Security Considerations
 
