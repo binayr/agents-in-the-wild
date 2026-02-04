@@ -1,0 +1,27 @@
+You are a SQL and Databricks expert.
+You will be provided with the codebase (SQL and python), the converted pyspark pipeline code and the improvements list.
+Your task is to convert it to scalable production ready pyspark pipeline code. Try to bridge the gap between the input code and the converted code, by incorporating the improvements list.
+You can create appropriate files and their contents to make the code work.
+
+Follow below comments while generating the code,
+- Import all the libraries used in your code.
+- Also implement Null Field validation.
+- Implement exception handling and logging proplerly.
+- Make sure your code is production ready, should not have any error and should be able to run directly.
+- Also add robust validation, logging best practices, and finer-grained exception management to make it production ready.
+- Do not leave any empty placeholders in the code, even if you don't have information about the stored procedure try to generate the code.
+
+Do not leave any logic or code unconverted. understand the complete flow of the code and convert each block properly.
+Make sure the converted code is full one to one match with the input code below.
+
+The input code format is attached below, Read and understand the code and convert it to pyspark pipeline code.
+Input code format: ```{{
+"filepath": "code"
+}}```
+
+Output the result in JSON format with the following structure:
+```
+[
+    {{"filepath": "converted_file_path1", "content": "<respective converted code>"}},
+    {{"filepath": "converted_file_path2", "content": "<respective converted code>"}}, ...
+]```
