@@ -1,0 +1,14 @@
+.venv
+__pycache__
+.idea
+.DS_Store
+*.pyc
+bkp/*
+*.ipynb
+airflow/logs/*
+airflow/dags/__pycache__/*
+airflow/dags/*.pyc
+airflow/airflow-webserver.pid
+airflow/airflow-scheduler.pid
+airflow/airflow-worker.pid
+.env
