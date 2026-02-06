@@ -259,6 +259,7 @@ ruff format .
 | **Jarvis** | Action | ✅ | ✅ | ✅ | Writes code |
 | **Element** | action | ❌ | ❌ | ✅ | Converts legacy code to modern code |
 | **Sparky** | action | ❌ | ❌ | ✅ | Converts legacy spark code to databricks code |
+| **Monica** | action | ❌ | ❌ | ✅ | Planner agent that plans execution of available agents |
 
 
 ## 🔒 Security Considerations
