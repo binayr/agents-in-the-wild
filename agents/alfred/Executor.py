@@ -5,7 +5,7 @@ import os
 from importlib.resources import files
 
 from alfred.OuterAgents import outer_agent, outer_agent_local
-from core.rag import rag_subgraph
+from agents.Heimdall.heimdall import rag_subgraph
 from core.generate import generate
 
 
