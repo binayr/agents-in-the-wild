@@ -1,0 +1,18 @@
+{
+    "0": {
+        "agent": "agentA",
+        "description": "This agent can do your Laundry",
+        "agent_url": "http://localhost:5001/a2a/",
+        "comments": "any kind of laundry",
+        "is_active": true,
+        "local": false
+    },
+    "1": {
+        "agent": "AgentB",
+        "description": "This agent can send email for you",
+        "agent_url": "http://localhost:5002/a2a/",
+        "comments": "any kind of email",
+        "is_active": true,
+        "local": false
+    }
+}

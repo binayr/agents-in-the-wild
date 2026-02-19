@@ -259,6 +259,7 @@ ruff format .
 | **Jarvis** | Action | ✅ | ✅ | ✅ | Writes code |
 | **Element** | action | ❌ | ❌ | ✅ | Converts legacy code to modern code |
 | **Sparky** | action | ❌ | ❌ | ✅ | Converts legacy spark code to databricks code |
+| **Alfred** | Planner/Executor | ❌ | ❌ | ✅ | Like Batman's Butler, Alfred is your personal assitant, that knows your capabilities as well as any other outside capabilities and tools. It can plan and execute your multiagent system based on your need. |
 
 
 ## 🔒 Security Considerations
