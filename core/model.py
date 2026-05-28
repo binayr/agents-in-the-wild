@@ -13,6 +13,7 @@ supports multiple Azure OpenAI models including o1, o1-mini, gpt-4o, and gpt-4o-
 import logging
 
 from langchain_openai import AzureChatOpenAI, AzureOpenAIEmbeddings
+from langchain_openai import ChatOpenAI
 
 from core.config import (
     AZURE_OPENAI_API_KEY,
@@ -21,13 +22,14 @@ from core.config import (
     EMBEDDING_OPENAI_API_BASE,
     EMBEDDING_OPENAI_API_KEY,
     EMBEDDING_OPENAI_API_VERSION,
+    GITHUB_TOKEN
 )
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class AzureOpenAIModel:
+class AIModel:
     """
     Factory class for accessing various language models used by the TORI system.
 
@@ -39,9 +41,25 @@ class AzureOpenAIModel:
     Attributes:
         _model_cache (dict): Internal cache of model instances indexed by model name
     """
+    @staticmethod
+    def get_model(model: str) -> ChatOpenAI | AzureChatOpenAI | AzureOpenAIEmbeddings:
+        """
+        Factory method to get the appropriate language model instance based on model name.
+        Uses caching to avoid recreating model instances for better performance.
+        """
+        return AIModel.get_github_model(model)
 
     @staticmethod
-    def get_model(model: str) -> AzureChatOpenAI | AzureOpenAIEmbeddings:
+    def get_github_model(model: str) -> ChatOpenAI:
+        """
+        """
+        endpoint = "https://models.github.ai/inference"
+
+        return ChatOpenAI(model=model, api_key=GITHUB_TOKEN, base_url=endpoint)
+
+
+    @staticmethod
+    def get_azure_model(model: str) -> AzureChatOpenAI | AzureOpenAIEmbeddings:
         """
         Factory method to get the appropriate language model instance based on model name.
         Uses caching to avoid recreating model instances for better performance.

@@ -1,21 +1,26 @@
 # code of agent one
 import json
-from typing import Any
+from typing import Any, TypedDict
 
-from core.model import AzureOpenAIModel
 from langchain.agents import create_agent
 from langchain.agents.middleware import HumanInTheLoopMiddleware
 from langchain_core.messages import ToolMessage
 from langchain_core.tools import tool
 from langgraph.checkpoint.memory import InMemorySaver
-from langgraph.graph import State
 from pydantic import BaseModel, Field
 
+from core.model import AIModel
+
 #########  AI MODEL #########
-model = AzureOpenAIModel.get_model("gpt-4o")
+model_name = "openai/gpt-4o"
+model = AIModel.get_model(model_name)
 
 
 #########  DATA MODEL  ##############
+class TonyState(TypedDict):
+    question: str
+
+
 class ActionAgentOut(BaseModel):
     output: str = Field(description="output of the message")
     tool_call: str = Field(description="tool call to be made")
@@ -33,7 +38,7 @@ def take_action(action: str) -> dict[str, Any]:
     return {"action": action, "status": "success"}
 
 
-def action_agent(state: State) -> dict[str, Any]:
+def action_agent(state: TonyState, config: dict[str, Any]) -> dict[str, Any]:
     print("Invoking action agent")
     question = state["question"]
 
@@ -48,7 +53,8 @@ def action_agent(state: State) -> dict[str, Any]:
         model=model,
         system_prompt=system_prompt,
         tools=[take_action],
-        checkpointer=InMemorySaver()
+        checkpointer=InMemorySaver(),
+        response_format=ActionAgentOut,
     )
 
     query = f"""User query: {question}"""
@@ -56,7 +62,8 @@ def action_agent(state: State) -> dict[str, Any]:
     inputs = {"messages": [("human", query)]}
 
     # Invoke the agent - it will interrupt if approval is needed
-    result = agent.invoke(inputs)
+    response = agent.invoke(inputs, config=config)
+    result = response["structured_response"]
 
     print(f"action_agent_result: {result}")
 
@@ -65,7 +72,7 @@ def action_agent(state: State) -> dict[str, Any]:
 
 
 ########### Action Agent with HITL ##############
-def action_agent_hitl(state: State) -> dict[str, Any]:
+def action_agent_hitl(state: TonyState) -> dict[str, Any]:
     print("Invoking action agent")
     question = state["question"]
 
